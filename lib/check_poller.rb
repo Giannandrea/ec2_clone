@@ -23,7 +23,7 @@ class TestHelper
   def wait_for_image(ec2, id)
     #ec2=AWS::EC2.new(:ec2_endpoint => region)
     puts "Image creation failed" and exit if ec2.images[id].state == :failed
-    poll("Image didn't come online quick enough", 1800, 30) do
+    poll("Image didn't come online quick enough", 5600, 30) do
       ec2.images[id].state == :available
     end
   end
